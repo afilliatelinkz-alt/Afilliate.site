@@ -26,7 +26,28 @@ text-align:center;
 padding:50px 20px;
 box-shadow:0 2px 10px rgba(0,0,0,0.2);
 }
+header h1 {
+font-size:60px;
+margin:0;
+font-weight:bold;
+}
 
+header p {
+font-size:24px;
+margin-top:20px;
+color:#ddd;
+}
+
+.hero-btn {
+display:inline-block;
+margin-top:30px;
+padding:15px 35px;
+background:white;
+color:black;
+text-decoration:none;
+font-weight:bold;
+border-radius:8px;
+}
 .products {
 display:flex;
 justify-content:center;
@@ -86,15 +107,18 @@ text-decoration:underline;
 
 <header>
 
+<header>
+
 <h1>AffiliateLinkz</h1>
 
-<p>Discover the best products, deals and recommendations.</p>
+<p>Your trusted guide to the best products, deals and recommendations.</p>
+
+<a href="#categories" class="hero-btn">Browse Categories</a>
 
 </header>
 
 
-
-<section class="products">
+<section class="products" id="categories">
 
 
 <div class="card">
