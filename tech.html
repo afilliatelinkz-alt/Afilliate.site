@@ -1,148 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Tech & Gadgets | AffiliateLinkz</title>
-
-<style>
-
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-header {
-background:#111;
-color:white;
-text-align:center;
-padding:25px;
-}
-
-.products {
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-padding:40px;
-}
-
-.card {
-background:white;
-width:250px;
-padding:20px;
-border-radius:10px;
-text-align:center;
-}
-
-.products a {
-background:black;
-color:white;
-padding:10px 20px;
-text-decoration:none;
-border-radius:5px;
-}
-
-footer {
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 30px 20px;
-  margin-top: auto;
-}
-  
-footer a {
-background:black;
-color:white;
-padding:10px 20px;
-text-decoration:none;
-border-radius:5px;
-display:inline-block;
-}
-
-.back {
-text-align:center;
-margin-top:20px;
-}
-  .back a {
-background:black;
-color:white;
-padding:10px 20px;
-text-decoration:none;
-border-radius:5px;
-}
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech & Gadgets - AffiliateLinkz</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+    
+    header { background: #111827; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    header .logo { font-size: 1.25rem; font-weight: bold; color: #3b82f6; text-decoration: none; }
+    header nav a { color: #d1d5db; text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
+    header nav a:hover { color: #ffffff; text-decoration: underline; }
+    
+    .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; flex: 1; }
+    h1 { margin-bottom: 10px; color: #111; }
+    p.subtext { color: #666; margin-bottom: 30px; }
+    
+    .grid { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; }
+    .card { background: white; width: 280px; padding: 15px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+    .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 6px; margin-bottom: 12px; }
+    .card h2 { font-size: 18px; color: #111; margin-bottom: 8px; }
+    .card .price { font-size: 20px; font-weight: bold; color: #059669; margin-bottom: 8px; }
+    .card p { color: #555; font-size: 14px; margin-bottom: 15px; flex-grow: 1; }
+    .card a.buy-btn { display: block; background: #2563eb; color: white; padding: 10px; text-decoration: none; border-radius: 6px; font-weight: bold; }
+    .card a.buy-btn:hover { background: #1d4ed8; }
+    
+    footer { background: #111; color: white; text-align: center; padding: 25px 20px; margin-top: auto; }
+  </style>
 </head>
-
-
 <body>
 
+  <!-- Top Header Navigation -->
+  <header>
+    <a href="index.html" class="logo">AffiliateLinkz</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+  </header>
 
-<header>
+  <main class="container">
+    <h1>Tech & Gadgets</h1>
+    <p class="subtext">The latest technology, smart gadgets, audio gear, and essential desk accessories.</p>
 
-<h1>AffiliateLinkz</h1>
-<h2>Tech & Gadgets</h2>
+    <div class="grid">
 
-</header>
+      <!-- Product Card 1 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Wireless ANC Headphones">
+        <h2>Wireless ANC Headphones</h2>
+        <div class="price">£49.99</div>
+        <p>Active noise-canceling wireless headphones with up to 30 hours of battery life and deep bass.</p>
+        <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="nofollow sponsored" class="buy-btn">View on Amazon</a>
+      </div>
 
-<div class="back">
+      <!-- Product Card 2 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500" alt="Adjustable Laptop Stand">
+        <h2>Adjustable Aluminium Laptop Stand</h2>
+        <div class="price">£24.99</div>
+        <p>Ergonomic heat-dissipating aluminium stand compatible with laptops up to 17 inches.</p>
+        <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="nofollow sponsored" class="buy-btn">View on Amazon</a>
+      </div>
 
-<a href="index.html">Back to Home</a>
+      <!-- Product Card 3 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500" alt="Smart Watch">
+        <h2>Smart Fitness Watch</h2>
+        <div class="price">£39.99</div>
+        <p>Sleek touchscreen smartwatch featuring continuous heart rate monitoring and fitness tracking.</p>
+        <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="nofollow sponsored" class="buy-btn">View on Amazon</a>
+      </div>
 
-</div>
-
-<section class="products">
-
-
-<div class="card">
-
-<h2>Wireless Earbuds</h2>
-
-<p>Affordable earbuds for music and everyday use.</p>
-
-<a href="#">Check Price</a>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Gaming Mouse</h2>
-
-<p>Popular gaming accessories and equipment.</p>
-
-<a href="#">Check Price</a>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Smart Watch</h2>
-
-<p>Trending wearable technology.</p>
-
-<a href="#">Check Price</a>
-
-</div>
-
-
-</section>
+    </div>
+  </main>
 
   <footer>
-
-
-</footer>
+    <p><strong>AffiliateLinkz</strong> &copy; 2026. All rights reserved.</p>
+  </footer>
 
 </body>
-
 </html>
