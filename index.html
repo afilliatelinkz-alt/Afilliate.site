@@ -23,6 +23,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
     }
 
     .top-nav .logo {
@@ -32,27 +33,74 @@
       text-decoration: none;
     }
 
-    /* Header Pull-Down Search Bar Styling */
+    /* Live Product Search Bar Container */
     .header-search {
+      position: relative;
       flex: 1;
-      max-width: 320px;
+      max-width: 360px;
       margin: 0 20px;
     }
 
-    .header-search select {
+    .header-search input {
       width: 100%;
-      padding: 8px 14px;
+      padding: 9px 16px;
       border-radius: 20px;
       border: 1px solid #374151;
       background-color: #1f2937;
       color: #ffffff;
       font-size: 14px;
       outline: none;
-      cursor: pointer;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
     }
 
-    .header-search select:hover {
+    .header-search input:focus {
       border-color: #3b82f6;
+      background-color: #111827;
+    }
+
+    /* Live Search Results Popup Box */
+    .search-results {
+      display: none;
+      position: absolute;
+      top: 110%;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      max-height: 280px;
+      overflow-y: auto;
+      z-index: 1000;
+      border: 1px solid #e5e7eb;
+    }
+
+    .search-results a {
+      display: block;
+      padding: 10px 14px;
+      color: #111827;
+      text-decoration: none;
+      font-size: 14px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .search-results a:hover {
+      background-color: #f3f4f6;
+      color: #2563eb;
+    }
+
+    .search-results a small {
+      display: block;
+      color: #6b7280;
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .search-results .no-result {
+      padding: 12px;
+      color: #6b7280;
+      font-size: 13px;
+      text-align: center;
     }
 
     .top-nav nav a {
@@ -98,7 +146,7 @@
       border-radius: 8px;
     }
 
-    /* UK ASA Upfront Legal Notice */
+    /* UK ASA Legal Notice Banner */
     .asa-notice {
       background: #eef2ff;
       color: #374151;
@@ -109,7 +157,7 @@
       line-height: 1.4;
     }
 
-    /* Products Grid */
+    /* Category Grid */
     .products {
       display: flex;
       justify-content: center;
@@ -147,10 +195,6 @@
       margin-top: 10px;
     }
 
-    .card a:hover {
-      background: #333;
-    }
-
     /* Footer */
     footer {
       background: #111;
@@ -158,10 +202,6 @@
       text-align: center;
       padding: 30px 20px;
       margin-top: auto;
-    }
-
-    footer p {
-      margin: 8px 0;
     }
 
     footer nav {
@@ -175,18 +215,14 @@
       font-size: 14px;
     }
 
-    footer a:hover {
-      color: white;
-      text-decoration: underline;
-    }
-
-    /* Mobile Responsive Styling */
+    /* Mobile view styling */
     @media (max-width: 650px) {
       .top-nav {
         flex-direction: column;
         gap: 12px;
         padding: 1rem;
       }
+
       .header-search {
         width: 100%;
         max-width: 100%;
@@ -198,21 +234,14 @@
 
 <body>
 
-  <!-- 1. Top Navigation Bar with Pull-Down Search Bar -->
+  <!-- 1. Header with Live Product Search -->
   <header class="top-nav">
     <a href="index.html" class="logo">AffiliateLinkz</a>
 
-    <!-- SEARCH DROPDOWN MENU -->
+    <!-- LIVE PRODUCT SEARCH INPUT -->
     <div class="header-search">
-      <select id="quickSelect" onchange="if(this.value) window.location.href=this.value;">
-        <option value="">🔍 Jump to product category...</option>
-        <option value="tech.html">Tech & Gadgets</option>
-        <option value="gaming.html">Gaming Gear</option>
-        <option value="fashion.html">Fashion Finds</option>
-        <option value="fitness.html">Fitness Equipment</option>
-        <option value="home.html">Home Essentials</option>
-        <option value="deals.html">Trending Deals</option>
-      </select>
+      <input type="text" id="searchInput" onkeyup="liveSearch()" placeholder="🔍 Search products (e.g. AirTag, Keyboard)..." autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
     </div>
 
     <nav>
@@ -229,14 +258,13 @@
     <a href="#categories" class="hero-btn">Browse Categories</a>
   </section>
 
-  <!-- 3. UK ASA Upfront Legal Notice -->
+  <!-- 3. UK ASA Legal Notice Banner -->
   <div class="asa-notice">
     📢 <strong>Affiliate Notice:</strong> AffiliateLinkz is reader-supported. When you click links on our site to purchase products, we may earn an affiliate commission at no extra cost to you.
   </div>
 
-  <!-- 4. Category Cards Grid -->
+  <!-- 4. Category Grid -->
   <section class="products" id="categories">
-
     <div class="card">
       <h2>Tech & Gadgets</h2>
       <p>Latest technology, gadgets and accessories.</p>
@@ -272,10 +300,9 @@
       <p>Popular products, discounts and items everyone is talking about.</p>
       <a href="deals.html">View Deals</a>
     </div>
-
   </section>
 
-  <!-- 5. Compliant Footer -->
+  <!-- 5. Footer -->
   <footer>
     <p><strong>AffiliateLinkz</strong> &copy; 2026</p>
     <p style="color: #d1d5db; max-width: 600px; margin: 0 auto; font-size: 14px; line-height: 1.4;">
@@ -285,12 +312,63 @@
       AffiliateLinkz participates in affiliate advertising programmes. As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.
     </p>
 
-    <!-- Footer Quick Links -->
     <nav>
       <a href="about.html">About Us</a> | 
       <a href="privacy.html">Privacy Policy</a>
     </nav>
   </footer>
+
+  <!-- 6. LIVE SEARCH JAVASCRIPT INDEX -->
+  <script>
+    // LIST OF PRODUCTS ON YOUR SITE (Add your products here!)
+    const products = [
+      { name: "Apple AirTag (4-Pack)", category: "Tech & Gadgets", link: "tech.html" },
+      { name: "Wireless Gaming Headset", category: "Gaming Gear", link: "gaming.html" },
+      { name: "Oversized Hoodie & Lounge Set", category: "Fashion Finds", link: "fashion.html" },
+      { name: "Adjustable Dumbbells Set", category: "Fitness", link: "fitness.html" },
+      { name: "Smart LED Sunset Lamp", category: "Home Essentials", link: "home.html" },
+      { name: "Mechanical RGB Gaming Keyboard", category: "Gaming Gear", link: "gaming.html" },
+      { name: "Noise Cancelling Headphones", category: "Tech & Gadgets", link: "tech.html" },
+      { name: "Stainless Steel Water Bottle", category: "Fitness", link: "fitness.html" }
+    ];
+
+    function liveSearch() {
+      let input = document.getElementById('searchInput').value.toLowerCase().trim();
+      let resultsDiv = document.getElementById('searchResults');
+      resultsDiv.innerHTML = '';
+
+      if (input.length === 0) {
+        resultsDiv.style.display = 'none';
+        return;
+      }
+
+      // Filter matching products by name or category
+      let matches = products.filter(p => 
+        p.name.toLowerCase().includes(input) || 
+        p.category.toLowerCase().includes(input)
+      );
+
+      if (matches.length > 0) {
+        matches.forEach(item => {
+          let a = document.createElement('a');
+          a.href = item.link;
+          a.innerHTML = `<strong>${item.name}</strong><small>Category: ${item.category}</small>`;
+          resultsDiv.appendChild(a);
+        });
+        resultsDiv.style.display = 'block';
+      } else {
+        resultsDiv.innerHTML = '<div class="no-result">No matching products found</div>';
+        resultsDiv.style.display = 'block';
+      }
+    }
+
+    // Hide popup when clicking anywhere outside the search bar
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.header-search')) {
+        document.getElementById('searchResults').style.display = 'none';
+      }
+    });
+  </script>
 
 </body>
 
