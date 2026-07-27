@@ -4,370 +4,426 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AffiliateLinkz | Best Product Recommendations</title>
+  <title>AffiliateLinkz | Curated Deals & Recommendations</title>
 
   <style>
+    :root {
+      --primary: #3b82f6;
+      --dark: #111827;
+      --accent: #ef4444;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       margin: 0;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
 
-    /* Top Navigation Bar */
+    /* 1. Header Navigation */
     .top-nav {
-      background: #111827;
+      background: var(--dark);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    .top-nav .logo {
-      font-size: 1.25rem;
-      font-weight: bold;
-      color: #3b82f6;
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary);
       text-decoration: none;
+      letter-spacing: -0.5px;
     }
 
-    /* Live Product Search Bar Container */
     .header-search {
-      position: relative;
       flex: 1;
-      max-width: 360px;
-      margin: 0 20px;
+      max-width: 320px;
+      margin: 0 15px;
     }
 
     .header-search input {
       width: 100%;
-      padding: 9px 16px;
+      padding: 8px 16px;
       border-radius: 20px;
       border: 1px solid #374151;
-      background-color: #1f2937;
-      color: #ffffff;
+      background: #1f2937;
+      color: #fff;
       font-size: 14px;
       outline: none;
-      box-sizing: border-box;
-      transition: all 0.2s ease;
     }
 
     .header-search input:focus {
-      border-color: #3b82f6;
-      background-color: #111827;
-    }
-
-    /* Live Search Results Popup Box */
-    .search-results {
-      display: none;
-      position: absolute;
-      top: 110%;
-      left: 0;
-      right: 0;
-      background: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      max-height: 280px;
-      overflow-y: auto;
-      z-index: 1000;
-      border: 1px solid #e5e7eb;
-    }
-
-    .search-results a {
-      display: block;
-      padding: 10px 14px;
-      color: #111827;
-      text-decoration: none;
-      font-size: 14px;
-      border-bottom: 1px solid #f3f4f6;
-    }
-
-    .search-results a:hover {
-      background-color: #f3f4f6;
-      color: #2563eb;
-    }
-
-    .search-results a small {
-      display: block;
-      color: #6b7280;
-      font-size: 11px;
-      margin-top: 2px;
-    }
-
-    .search-results .no-result {
-      padding: 12px;
-      color: #6b7280;
-      font-size: 13px;
-      text-align: center;
+      border-color: var(--primary);
     }
 
     .top-nav nav a {
-      color: #d1d5db;
+      color: #cbd5e1;
       text-decoration: none;
-      margin-left: 1.5rem;
+      margin-left: 1.2rem;
       font-weight: 500;
-    }
-
-    .top-nav nav a:hover {
-      color: #ffffff;
-    }
-
-    /* Hero Banner Section */
-    .hero {
-      background: linear-gradient(135deg, #111, #222);
-      color: white;
-      text-align: center;
-      padding: 50px 20px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .hero h1 {
-      font-size: 60px;
-      margin: 0;
-      font-weight: bold;
-    }
-
-    .hero p {
-      font-size: 24px;
-      margin-top: 20px;
-      color: #ddd;
-    }
-
-    .hero-btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 35px;
-      background: white;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-    }
-
-    /* UK ASA Legal Notice Banner */
-    .asa-notice {
-      background: #eef2ff;
-      color: #374151;
-      font-size: 13px;
-      text-align: center;
-      padding: 10px 15px;
-      border-bottom: 1px solid #e0e7ff;
-      line-height: 1.4;
-    }
-
-    /* Category Grid */
-    .products {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 40px;
-      flex: 1;
-    }
-
-    .card {
-      background: white;
-      width: 250px;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
-
-    .card h2 {
-      color: black;
-      margin-top: 0;
-    }
-
-    .card p {
-      color: #555;
-    }
-
-    .card a {
-      display: inline-block;
-      background: black;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 10px;
-    }
-
-    /* Footer */
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: auto;
-    }
-
-    footer nav {
-      margin-top: 15px;
-    }
-
-    footer a {
-      color: #9ca3af;
-      text-decoration: none;
-      margin: 0 10px;
       font-size: 14px;
     }
 
-    /* Mobile view styling */
-    @media (max-width: 650px) {
-      .top-nav {
-        flex-direction: column;
-        gap: 12px;
-        padding: 1rem;
-      }
+    .top-nav nav a:hover { color: #fff; }
 
-      .header-search {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-      }
+    /* 2. ASA Compliance Banner */
+    .asa-banner {
+      background: #e0e7ff;
+      color: #3730a3;
+      font-size: 13px;
+      text-align: center;
+      padding: 8px 15px;
+      font-weight: 500;
+    }
+
+    /* 3. Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 { font-size: 42px; margin: 0 0 10px 0; }
+    .hero p { font-size: 18px; color: #94a3b8; max-width: 600px; margin: 0 auto 25px auto; }
+
+    /* 4. Filter Tabs */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: #e2e8f0;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* 5. Product Cards Grid */
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; flex: 1; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s;
+    }
+
+    .card:hover { transform: translateY(-4px); }
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--accent);
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 { margin: 0 0 8px 0; font-size: 18px; }
+    .stars { color: #f59e0b; font-size: 14px; margin-bottom: 8px; }
+    .card p { font-size: 13px; color: #64748b; line-height: 1.4; margin-bottom: 15px; }
+    .price { font-size: 20px; font-weight: bold; color: var(--dark); margin-bottom: 12px; }
+    .price small { font-size: 11px; color: #94a3b8; font-weight: normal; }
+
+    .buy-btn {
+      display: block;
+      text-align: center;
+      background: #f59e0b;
+      color: #000;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .buy-btn:hover { background: #d97706; color: #fff; }
+
+    /* 6. Newsletter Box */
+    .newsletter {
+      background: #1e293b;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 10px 15px;
+      border-radius: 6px;
+      border: none;
+      width: 250px;
+      max-width: 100%;
+    }
+
+    .newsletter button {
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: none;
+      background: var(--primary);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* 7. FAQ Section */
+    .faq-section { margin: 40px 0; }
+    .faq-item { background: white; border-radius: 8px; padding: 15px; margin-bottom: 10px; }
+    .faq-item h4 { margin: 0 0 5px 0; }
+    .faq-item p { margin: 0; font-size: 14px; color: #64748b; }
+
+    /* 8. Footer */
+    footer {
+      background: var(--dark);
+      color: #94a3b8;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 13px;
+    }
+
+    footer p { margin: 8px 0; }
+    footer a { color: #cbd5e1; text-decoration: none; }
+
+    /* 9. Cookie Consent Popup */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #0f172a;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    .cookie-banner button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    @media (max-width: 650px) {
+      .top-nav { flex-direction: column; gap: 10px; }
+      .header-search { width: 100%; }
+      .cookie-banner { flex-direction: column; gap: 10px; text-align: center; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- 1. Header with Live Product Search -->
+  <!-- 1. HEADER -->
   <header class="top-nav">
     <a href="index.html" class="logo">AffiliateLinkz</a>
-
-    <!-- LIVE PRODUCT SEARCH INPUT -->
     <div class="header-search">
-      <input type="text" id="searchInput" onkeyup="liveSearch()" placeholder="🔍 Search products (e.g. AirTag, Keyboard)..." autocomplete="off">
-      <div id="searchResults" class="search-results"></div>
+      <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="🔍 Live search products...">
     </div>
-
     <nav>
-      <a href="index.html" style="color: #ffffff;">Home</a>
+      <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
       <a href="privacy.html">Privacy Policy</a>
     </nav>
   </header>
 
-  <!-- 2. Hero Section -->
-  <section class="hero">
-    <h1>AffiliateLinkz</h1>
-    <p>Your trusted guide to the best products, deals and recommendations.</p>
-    <a href="#categories" class="hero-btn">Browse Categories</a>
-  </section>
-
-  <!-- 3. UK ASA Legal Notice Banner -->
-  <div class="asa-notice">
-    📢 <strong>Affiliate Notice:</strong> AffiliateLinkz is reader-supported. When you click links on our site to purchase products, we may earn an affiliate commission at no extra cost to you.
+  <!-- 2. ASA DISCLOSURE BANNER -->
+  <div class="asa-banner">
+    📢 <strong>Affiliate Disclosure:</strong> AffiliateLinkz is reader-supported. We may earn an affiliate commission when you buy through Amazon links on our site.
   </div>
 
-  <!-- 4. Category Grid -->
-  <section class="products" id="categories">
-    <div class="card">
-      <h2>Tech & Gadgets</h2>
-      <p>Latest technology, gadgets and accessories.</p>
-      <a href="tech.html">View Products</a>
-    </div>
-
-    <div class="card">
-      <h2>Fashion Finds</h2>
-      <p>Trending clothing and style picks.</p>
-      <a href="fashion.html">View Products</a>
-    </div>
-
-    <div class="card">
-      <h2>Gaming Gear</h2>
-      <p>Gaming equipment and accessories.</p>
-      <a href="gaming.html">View Products</a>
-    </div>
-
-    <div class="card">
-      <h2>Home Essentials</h2>
-      <p>Useful products for your home.</p>
-      <a href="home.html">View Products</a>
-    </div>
-
-    <div class="card">
-      <h2>Fitness</h2>
-      <p>Fitness products and equipment.</p>
-      <a href="fitness.html">View Products</a>
-    </div>
-
-    <div class="card">
-      <h2>Trending Deals</h2>
-      <p>Popular products, discounts and items everyone is talking about.</p>
-      <a href="deals.html">View Deals</a>
-    </div>
+  <!-- 3. HERO SECTION -->
+  <section class="hero">
+    <h1>Hand-Picked Recommendations</h1>
+    <p>Discover top-rated tech, gaming gear, and lifestyle products curated daily.</p>
   </section>
 
-  <!-- 5. Footer -->
+  <!-- 4. CATEGORY FILTER TABS -->
+  <div class="filter-container">
+    <button class="filter-btn active" onclick="filterCategory('all', this)">All Products</button>
+    <button class="filter-btn" onclick="filterCategory('tech', this)">Tech</button>
+    <button class="filter-btn" onclick="filterCategory('gaming', this)">Gaming</button>
+    <button class="filter-btn" onclick="filterCategory('home', this)">Home</button>
+  </div>
+
+  <main class="container">
+
+    <!-- 5. PRODUCT GRID -->
+    <div class="grid" id="productGrid">
+
+      <!-- Card 1 -->
+      <div class="card" data-category="tech">
+        <span class="badge">🔥 TOP PICK</span>
+        <img src="https://images.unsplash.com/photo-1628102491629-778571d893a3?w=500" alt="Apple AirTag">
+        <h3>Apple AirTag (4-Pack)</h3>
+        <div class="stars">★★★★★ <span>(4.8/5)</span></div>
+        <p>Keep track of keys, luggage, and tech with the Apple Find My network.</p>
+        <div class="price">£99.00 <small>(Subject to change)</small></div>
+        <a href="https://www.amazon.co.uk/dp/B0932QJ2JZ?tag=YOUR_AMAZON_TAG" target="_blank" rel="nofollow sponsored" class="buy-btn">View on Amazon</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card" data-category="gaming">
+        <span class="badge">⚡ 20% OFF</span>
+        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500" alt="Gaming Headset">
+        <h3>Wireless Gaming Headset</h3>
+        <div class="stars">★★★★☆ <span>(4.6/5)</span></div>
+        <p>Low latency audio, noise-canceling mic, and ultra-soft memory foam ear cushions.</p>
+        <div class="price">£49.99 <small>(Subject to change)</small></div>
+        <a href="https://www.amazon.co.uk/dp/EXAMPLE?tag=YOUR_AMAZON_TAG" target="_blank" rel="nofollow sponsored" class="buy-btn">View on Amazon</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card" data-category="home">
+        <span class="badge">🌟 POPULAR</span>
+        <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500" alt="Sunset Lamp">
+        <h3>Smart LED Sunset Lamp</h3>
+        <div class="stars">★★★★★ <span>(4.9/5)</span></div>
+        <p>Transform your room vibes with 16 color modes and app control integration.</p>
+        <div class="price">£19.99 <small>(Subject to change)</small></div>
+        <a href="https://www.amazon.co.uk/dp/EXAMPLE?tag=YOUR_AMAZON_TAG" target="_blank" rel="nofollow sponsored" class="buy-btn">View on Amazon</a>
+      </div>
+
+    </div>
+
+    <!-- 6. NEWSLETTER / DEAL ALERT SIGNUP -->
+    <div class="newsletter">
+      <h2>📩 Never Miss a Price Drop</h2>
+      <p>Get exclusive daily deal alerts sent straight to your inbox.</p>
+      <form onsubmit="alert('Thank you for subscribing!'); return false;">
+        <input type="email" placeholder="Enter your email..." required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- 7. FAQ ACCORDION -->
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h4>How do we select products?</h4>
+        <p>We analyze thousands of verified Amazon reviews, price drop trends, and overall value to bring you only highly-rated recommendations.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Does clicking your links cost me extra?</h4>
+        <p>No! Prices stay exactly the same for you. Amazon pays us a small affiliate referral fee directly out of their margin.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 8. COMPLIANT FOOTER -->
   <footer>
     <p><strong>AffiliateLinkz</strong> &copy; 2026</p>
-    <p style="color: #d1d5db; max-width: 600px; margin: 0 auto; font-size: 14px; line-height: 1.4;">
-      Helping you discover the best products across tech, gaming, fashion, fitness, and home.
+    <p style="max-width: 600px; margin: 0 auto 10px auto;">
+      Helping you discover top products across tech, gaming, fashion, and home.
     </p>
-    <p style="font-size: 12px; color: #9ca3af; max-width: 650px; margin: 12px auto 0 auto; line-height: 1.4;">
+    <p style="font-size: 11px; max-width: 650px; margin: 0 auto; color: #64748b;">
       AffiliateLinkz participates in affiliate advertising programmes. As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.
     </p>
-
-    <nav>
-      <a href="about.html">About Us</a> | 
-      <a href="privacy.html">Privacy Policy</a>
-    </nav>
+    <p style="margin-top: 15px;">
+      <a href="about.html">About Us</a> | <a href="privacy.html">Privacy Policy</a>
+    </p>
   </footer>
 
-  <!-- 6. LIVE SEARCH JAVASCRIPT INDEX -->
+  <!-- 9. COOKIE CONSENT BANNER -->
+  <div class="cookie-banner" id="cookieBanner">
+    <span>🍪 We use cookies (like Amazon affiliate cookies) to optimize your experience. By using our site, you accept our privacy policy.</span>
+    <button onclick="acceptCookies()">Accept & Continue</button>
+  </div>
+
+  <!-- 10. JAVASCRIPT FUNCTIONS -->
   <script>
-    // LIST OF PRODUCTS ON YOUR SITE (Add your products here!)
-    const products = [
-      { name: "Apple AirTag (4-Pack)", category: "Tech & Gadgets", link: "tech.html" },
-      { name: "Wireless Gaming Headset", category: "Gaming Gear", link: "gaming.html" },
-      { name: "Oversized Hoodie & Lounge Set", category: "Fashion Finds", link: "fashion.html" },
-      { name: "Adjustable Dumbbells Set", category: "Fitness", link: "fitness.html" },
-      { name: "Smart LED Sunset Lamp", category: "Home Essentials", link: "home.html" },
-      { name: "Mechanical RGB Gaming Keyboard", category: "Gaming Gear", link: "gaming.html" },
-      { name: "Noise Cancelling Headphones", category: "Tech & Gadgets", link: "tech.html" },
-      { name: "Stainless Steel Water Bottle", category: "Fitness", link: "fitness.html" }
-    ];
+    // Live Search Filter
+    function filterProducts() {
+      let input = document.getElementById('searchInput').value.toLowerCase();
+      let cards = document.querySelectorAll('.card');
 
-    function liveSearch() {
-      let input = document.getElementById('searchInput').value.toLowerCase().trim();
-      let resultsDiv = document.getElementById('searchResults');
-      resultsDiv.innerHTML = '';
-
-      if (input.length === 0) {
-        resultsDiv.style.display = 'none';
-        return;
-      }
-
-      // Filter matching products by name or category
-      let matches = products.filter(p => 
-        p.name.toLowerCase().includes(input) || 
-        p.category.toLowerCase().includes(input)
-      );
-
-      if (matches.length > 0) {
-        matches.forEach(item => {
-          let a = document.createElement('a');
-          a.href = item.link;
-          a.innerHTML = `<strong>${item.name}</strong><small>Category: ${item.category}</small>`;
-          resultsDiv.appendChild(a);
-        });
-        resultsDiv.style.display = 'block';
-      } else {
-        resultsDiv.innerHTML = '<div class="no-result">No matching products found</div>';
-        resultsDiv.style.display = 'block';
-      }
+      cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? 'flex' : 'none';
+      });
     }
 
-    // Hide popup when clicking anywhere outside the search bar
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.header-search')) {
-        document.getElementById('searchResults').style.display = 'none';
-      }
-    });
+    // Category Filter Tabs
+    function filterCategory(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      let cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Cookie Banner Handling
+    function acceptCookies() {
+      document.getElementById('cookieBanner').style.display = 'none';
+      localStorage.setItem('cookiesAccepted', 'true');
+    }
+
+    if (localStorage.getItem('cookiesAccepted') === 'true') {
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
   </script>
 
 </body>
