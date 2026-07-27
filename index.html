@@ -32,6 +32,29 @@
       text-decoration: none;
     }
 
+    /* Header Pull-Down Search Bar Styling */
+    .header-search {
+      flex: 1;
+      max-width: 320px;
+      margin: 0 20px;
+    }
+
+    .header-search select {
+      width: 100%;
+      padding: 8px 14px;
+      border-radius: 20px;
+      border: 1px solid #374151;
+      background-color: #1f2937;
+      color: #ffffff;
+      font-size: 14px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .header-search select:hover {
+      border-color: #3b82f6;
+    }
+
     .top-nav nav a {
       color: #d1d5db;
       text-decoration: none;
@@ -156,14 +179,42 @@
       color: white;
       text-decoration: underline;
     }
+
+    /* Mobile Responsive Styling */
+    @media (max-width: 650px) {
+      .top-nav {
+        flex-direction: column;
+        gap: 12px;
+        padding: 1rem;
+      }
+      .header-search {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- 1. Top Navigation Bar -->
+  <!-- 1. Top Navigation Bar with Pull-Down Search Bar -->
   <header class="top-nav">
     <a href="index.html" class="logo">AffiliateLinkz</a>
+
+    <!-- SEARCH DROPDOWN MENU -->
+    <div class="header-search">
+      <select id="quickSelect" onchange="if(this.value) window.location.href=this.value;">
+        <option value="">🔍 Jump to product category...</option>
+        <option value="tech.html">Tech & Gadgets</option>
+        <option value="gaming.html">Gaming Gear</option>
+        <option value="fashion.html">Fashion Finds</option>
+        <option value="fitness.html">Fitness Equipment</option>
+        <option value="home.html">Home Essentials</option>
+        <option value="deals.html">Trending Deals</option>
+      </select>
+    </div>
+
     <nav>
       <a href="index.html" style="color: #ffffff;">Home</a>
       <a href="about.html">About Us</a>
