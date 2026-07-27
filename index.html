@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google SEO Meta Tags Added -->
   <title>AffiliateLinkz | Best Tech, Audio & Accessory Recommendations</title>
   <meta name="description" content="Discover verified top-rated tech, Apple AirPods, AirTag trackers, and everyday accessories with honest reviews and direct Amazon links.">
   <meta name="keywords" content="Amazon affiliate, tech deals, Apple AirPods Pro, Apple AirTag, product recommendations">
@@ -156,7 +155,6 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     }
 
-    /* Highlight effect when searching and locating a product */
     .card.highlight {
       border: 2px solid var(--primary);
       box-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
@@ -457,10 +455,8 @@
         if (matchesCategory && matchesSearch) {
           card.style.display = 'flex';
           
-          // Auto-focus highlight effect if user typed something specific
           if (input.length > 1 && matchesSearch) {
             card.classList.add('highlight');
-            // Automatically jump/scroll the page smoothly to the specific product card
             if (cardText.includes(input)) {
               card.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
