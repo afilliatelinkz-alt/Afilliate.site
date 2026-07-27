@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gaming Gear | AffiliateLinkz</title>
+
+<style>
+
+body {
+font-family: Arial, sans-serif;
+background:#f4f4f4;
+margin:0;
+}
+
+header {
+background:#111;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+header h1 {
+margin-bottom:10px;
+}
+
+.products {
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+padding:40px;
+}
+
+.card {
+background:white;
+width:250px;
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
+
+.card h2 {
+font-size:22px;
+}
+
+.card p {
+color:#555;
+}
+
+a {
+background:black;
+color:white;
+padding:10px 20px;
+text-decoration:none;
+border-radius:5px;
+display:inline-block;
+margin-top:10px;
+}
+
+.back {
+text-align:center;
+margin-bottom:20px;
+}
+
+footer {
+background:#111;
+color:white;
+text-align:center;
+padding:15px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>AffiliateLinkz</h1>
+
+<h2>Gaming Gear</h2>
+
+<p>Discover popular gaming products and accessories.</p>
+
+</header>
+
+
+
+<section class="products">
+
+
+<div class="card">
+
+<h2>Gaming Mouse</h2>
+
+<p>High precision gaming mice designed for smooth control and fast reactions.</p>
+
+<a href="#">Check Price</a>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Gaming Keyboard</h2>
+
+<p>Mechanical keyboards with responsive keys for gaming and everyday use.</p>
+
+<a href="#">Check Price</a>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Gaming Headset</h2>
+
+<p>Immersive audio headsets for gaming, communication and entertainment.</p>
+
+<a href="#">Check Price</a>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Gaming Monitor</h2>
+
+<p>High quality displays built for smoother gaming experiences.</p>
+
+<a href="#">Check Price</a>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Gaming Controller</h2>
+
+<p>Comfortable controllers for PC and console gaming.</p>
+
+<a href="#">Check Price</a>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Gaming Accessories</h2>
+
+<p>Useful gaming setup upgrades including stands, cables and more.</p>
+
+<a href="#">Check Price</a>
+
+</div>
+
+
+</section>
+
+
+<div class="back">
+
+<a href="index.html">Back to Categories</a>
+
+</div>
+
+
+
+<footer>
+
+<p>© 2026 AffiliateLinkz. Affiliate links may earn commission.</p>
+
+</footer>
+
+
+</body>
+
+</html>
