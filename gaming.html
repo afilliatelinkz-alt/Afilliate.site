@@ -1,198 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Gaming Gear | AffiliateLinkz</title>
-
-  
-<style>
-
-
-body {
-font-family: Arial, sans-serif;
-background:#f4f4f4;
-margin:0;
-}
-
-header {
-background:#111;
-color:white;
-text-align:center;
-padding:25px;
-}
-
-header h1 {
-margin-bottom:10px;
-}
-
-.products {
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-padding:40px;
-}
-
-.card {
-background:white;
-width:250px;
-padding:20px;
-border-radius:10px;
-text-align:center;
-}
-
-.card h2 {
-font-size:22px;
-}
-
-.card p {
-color:#555;
-}
-
-a {
-background:black;
-color:white;
-padding:10px 20px;
-text-decoration:none;
-border-radius:5px;
-display:inline-block;
-margin-top:10px;
-}
-
-.back {
-text-align:center;
-margin-bottom:20px;
-}
-
-footer {
-background:#111;
-color:white;
-text-align:center;
-padding:15px;
-}
-.back {
-text-align:center;
-margin-top:20px;
-}
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Gear - AffiliateLinkz</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+    
+    header { background: #111827; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    header .logo { font-size: 1.25rem; font-weight: bold; color: #3b82f6; text-decoration: none; }
+    header nav a { color: #d1d5db; text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
+    header nav a:hover { color: #ffffff; text-decoration: underline; }
+    
+    .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; flex: 1; }
+    h1 { margin-bottom: 10px; color: #111; }
+    p.subtext { color: #666; margin-bottom: 30px; }
+    
+    .grid { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; }
+    .card { background: white; width: 280px; padding: 15px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+    .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 6px; margin-bottom: 12px; }
+    .card h2 { font-size: 18px; color: #111; margin-bottom: 8px; }
+    .card .price { font-size: 20px; font-weight: bold; color: #059669; margin-bottom: 8px; }
+    .card p { color: #555; font-size: 14px; margin-bottom: 15px; flex-grow: 1; }
+    .card a.buy-btn { display: block; background: #2563eb; color: white; padding: 10px; text-decoration: none; border-radius: 6px; font-weight: bold; }
+    .card a.buy-btn:hover { background: #1d4ed8; }
+    
+    footer { background: #111; color: white; text-align: center; padding: 25px 20px; margin-top: auto; }
+  </style>
 </head>
-
-
 <body>
 
+  <!-- Top Header Navigation -->
+  <header>
+    <a href="index.html" class="logo">AffiliateLinkz</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+  </header>
 
-<header>
+  <main class="container">
+    <h1>Gaming Gear</h1>
+    <p class="subtext">High-performance gaming accessories, mechanical keyboards, precision mice, and headsets.</p>
 
-<h1>AffiliateLinkz</h1>
+    <div class="grid">
 
-<h2>Gaming Gear</h2>
+      <!-- Product Card 1 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500" alt="Mechanical Gaming Keyboard">
+        <h2>RGB Mechanical Keyboard</h2>
+        <div class="price">£39.99</div>
+        <p>Tactile mechanical switches, customizable RGB backlighting, and anti-ghosting keys for competitive gaming.</p>
+        <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="nofollow sponsored" class="buy-btn">View on Amazon</a>
+      </div>
 
-<p>Discover popular gaming products and accessories.</p>
+      <!-- Product Card 2 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500" alt="RGB Gaming Mouse">
+        <h2>Ergonomic RGB Gaming Mouse</h2>
+        <div class="price">£19.99</div>
+        <p>High-precision 12,000 DPI optical sensor with programmable side buttons and lightweight design.</p>
+        <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="nofollow sponsored" class="buy-btn">View on Amazon</a>
+      </div>
 
-</header>
+      <!-- Product Card 3 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500" alt="Gaming Headset">
+        <h2>7.1 Surround Gaming Headset</h2>
+        <div class="price">£34.99</div>
+        <p>Immersive 7.1 surround sound with noise-canceling microphone and comfortable memory foam ear cushions.</p>
+        <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="nofollow sponsored" class="buy-btn">View on Amazon</a>
+      </div>
 
+    </div>
+  </main>
 
-<div class="back">
-
-<a href="index.html">Back to Home</a>
-
-</div>
-<section class="products">
-
-
-<div class="card">
-
-<h2>Gaming Mouse</h2>
-
-<p>High precision gaming mice designed for smooth control and fast reactions.</p>
-
-<a href="#">Check Price</a>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Gaming Keyboard</h2>
-
-<p>Mechanical keyboards with responsive keys for gaming and everyday use.</p>
-
-<a href="#">Check Price</a>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Gaming Headset</h2>
-
-<p>Immersive audio headsets for gaming, communication and entertainment.</p>
-
-<a href="#">Check Price</a>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Gaming Monitor</h2>
-
-<p>High quality displays built for smoother gaming experiences.</p>
-
-<a href="#">Check Price</a>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Gaming Controller</h2>
-
-<p>Comfortable controllers for PC and console gaming.</p>
-
-<a href="#">Check Price</a>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Gaming Accessories</h2>
-
-<p>Useful gaming setup upgrades including stands, cables and more.</p>
-
-<a href="#">Check Price</a>
-
-</div>
-
-
-</section>
-
-
-<div class="back">
-
-<a href="index.html">Back to Categories</a>
-
-</div>
-
-
-
-<footer>
-
-
-</footer>
-
+  <footer>
+    <p><strong>AffiliateLinkz</strong> &copy; 2026. All rights reserved.</p>
+  </footer>
 
 </body>
-
 </html>
